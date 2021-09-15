@@ -47,7 +47,7 @@ namespace Library
             this.attack = this.attack + item.ReturnDamage();
             this.armor = this.armor + item.ReturnArmor();
         }
-        public void delateItem(Item item)
+        public void UnequipItem(Item item)
         {
             this.attack = this.attack - item.ReturnDamage();
             this.armor = this.armor - item.ReturnArmor();
