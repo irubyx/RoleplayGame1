@@ -9,39 +9,41 @@ namespace Library
         private int health { get; set;}
         private int attack { get; set;} 
         private int armor { get; set;}
-        private List<Item> inventory { get; set;}
+        private List<Item> inventory;
+        private SpellBook spellBook; 
 
-        public Wizard(string name)
+        public Wizard(string name, SpellBook book)
         {
-            this.name = $"El mago {name}";
+            this.name = $"Mago {name}";
             this.health = 100;
             this.attack = 25;
             this.armor = 35;
             this.inventory = new List<Item> {};
+            this.spellBook = book;
         }
         
         public void AttackEnemy(Wizard characterEnemy)
         {
             Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
             Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
         public void AttackEnemy(Elf characterEnemy)
         {
             Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
             Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
         public void AttackEnemy(Knight characterEnemy)
         {
             Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
             Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
         public void AttackEnemy(Dwarf characterEnemy)
         {
             Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
             Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
 

@@ -7,11 +7,13 @@ namespace Library
     public class SpellBook
     {
         private string name;
-        private List<Spell> spells;
+        public List<Spell> spells { get; private set; }
+        public int spellsCount = 0;
 
         public SpellBook(string name)
         {
             this.name = name;
+            this.spells = new List<Spell> {};
         }
 
         public void AddSpell(Spell spell)
@@ -19,6 +21,7 @@ namespace Library
             if(!spells.Contains(spell))
             {
                 spells.Add(spell);
+                spellsCount++;
             }
             else 
             {
@@ -40,6 +43,18 @@ namespace Library
             informationSpells.Append(line);
 
             return informationSpells.ToString();
+        }
+
+        public int GetDamage()
+        {
+            int damage = 0;
+            foreach (Spell item in spells)
+            {
+                damage += item.Effect; 
+            }
+            damage = (damage / 3) + spellsCount;
+
+            return damage;
         }
     }
 }
