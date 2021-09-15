@@ -17,27 +17,27 @@ namespace Library
         
         public void AttackEnemy(Wizard characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}");
-            characterEnemy.health -= this.attack;
-            Console.WriteLine($"-{this.attack} de vida de {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
         public void AttackEnemy(Elf characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}");
-            characterEnemy.health -= this.attack;
-            Console.WriteLine($"-{this.attack} de vida de {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
         public void AttackEnemy(Knight characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}");
-            characterEnemy.health -= this.attack;
-            Console.WriteLine($"-{this.attack} de vida de {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
         public void AttackEnemy(Dwarf characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}");
-            characterEnemy.health -= this.attack;
-            Console.WriteLine($"-{this.attack} de vida de {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
+            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor));
+            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
         }
 
 
