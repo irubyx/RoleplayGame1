@@ -8,7 +8,7 @@ namespace Library
         private int health { get; set;}
         private int attack { get; set;} 
         private int armor { get; set;}
-        private Item[] inventory { get; set;}
+        private List<Item> inventory { get; set;}
 
         public Wizard(string name)
         {
