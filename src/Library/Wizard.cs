@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -13,6 +14,10 @@ namespace Library
         public Wizard(string name)
         {
             this.name = $"El mago {name}";
+            this.health = 100;
+            this.attack = 25;
+            this.armor = 35;
+            this.inventory = new List<Item> {};
         }
         
         public void AttackEnemy(Wizard characterEnemy)
@@ -64,6 +69,37 @@ namespace Library
             Console.WriteLine($"Curando a {characterAlly.name}");
             characterAlly.health += 10;
             Console.WriteLine($"+10 de vida de {characterAlly.name}");
+        }
+
+        public void EquipItem(Item item)
+        {
+            this.inventory.Add(item);
+            this.attack = this.attack + item.ReturnDamage();
+            this.armor = this.armor + item.ReturnArmor();
+        }
+
+        public void UnequipItem(Item item)
+        {
+            this.attack = this.attack - item.ReturnDamage();
+            this.armor = this.armor - item.ReturnArmor();
+            this.inventory.Remove(item);
+        }
+        
+        public int ReturnArmor()
+        {
+            return this.armor;
+        }
+        public int ReturnAttack()
+        {
+            return this.attack;
+        }
+        public int CurrentHealth()
+        {
+            return this.health;
+        }
+        public void RestoreHealth()
+        {
+            this.health = 100;
         }
     }
 }
