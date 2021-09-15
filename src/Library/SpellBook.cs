@@ -15,7 +15,10 @@ namespace Library
             this.name = name;
             this.spells = new List<Spell> {};
         }
-
+        /// <summary>
+        /// Agrega hechizos al libro de Hechizos.
+        /// </summary>
+        /// <param name="spell">Instancia de hechizo</param>
         public void AddSpell(Spell spell)
         {
             if(!spells.Contains(spell))
@@ -29,6 +32,11 @@ namespace Library
             }
         }
 
+    /// <summary>
+    /// Obtiene una lista (string) de los hechizos y sus detalles.
+    /// </summary>
+    /// <param name="stringbuilder"></param>
+    /// <returns>Lista de hechizos</returns>
         public string GetSpells(object stringbuilder)
         {
             StringBuilder informationSpells = new StringBuilder();
@@ -45,6 +53,10 @@ namespace Library
             return informationSpells.ToString();
         }
 
+        /// <summary>
+        /// Método que calcula el daño total del libro de hechizos, el cual es usado como ventaja para el hechizero.
+        /// </summary>
+        /// <returns>Daño total</returns>
         public int GetDamage()
         {
             int damage = 0;

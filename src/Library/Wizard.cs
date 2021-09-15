@@ -15,13 +15,18 @@ namespace Library
         public Wizard(string name, SpellBook book)
         {
             this.name = $"Mago {name}";
-            this.health = 100;
+            this.health = 50;
             this.attack = 25;
             this.armor = 35;
             this.inventory = new List<Item> {};
             this.spellBook = book;
         }
         
+        /// <summary>
+        /// El metodo ataca a otro personaje quitandole vida. Existe una sobrecarga para poder admitir el combate entre 
+        /// todos los personajes del juego.
+        /// </summary>
+        /// <param name="characterEnemy"></param>
         public void AttackEnemy(Wizard characterEnemy)
         {
             Console.WriteLine($"Se ataca a {characterEnemy.name}.");
