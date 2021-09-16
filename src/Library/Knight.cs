@@ -13,7 +13,7 @@ namespace Library
         private int attack {get; set;}
         private int armor {get; set;}
         private string name {get;}
-        private List<Item> inventory;
+        private List<Item> inventory {get; set;}
         
         /// <summary>
         /// Constructor de la clase Knight
@@ -36,7 +36,7 @@ namespace Library
         {
             Console.WriteLine($"Se ataca a {wizard.ReturnName()}.");
             wizard.RecieveDamage(this.attack);
-            Console.WriteLine($"-{(this.attack - (this.attack * wizard.ReturnArmor()))} de vida a {wizard.ReturnName()}");
+            Console.WriteLine($"-{this.attack} de vida a {wizard.ReturnName()}");
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Library
         {
             Console.WriteLine($"Se ataca a {elf.ReturnName()}.");
             elf.RecieveDamage(this.attack);
-            Console.WriteLine($"-{(this.attack - (this.attack * elf.ReturnArmor()))} de vida a {elf.ReturnName()}");
+            Console.WriteLine($"-{this.attack} de vida a {elf.ReturnName()}");
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Library
         {
             Console.WriteLine($"Se ataca a {dwarf.ReturnName()}.");
             dwarf.RecieveDamage(this.attack);
-            Console.WriteLine($"-{(this.attack - (this.attack * dwarf.ReturnArmor()))} de vida a {dwarf.ReturnName()}");
+            Console.WriteLine($"-{this.attack} de vida a {dwarf.ReturnName()}");
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Library
         {
             Console.WriteLine($"Se ataca a {knight.ReturnName()}.");
             knight.RecieveDamage(this.attack);
-            Console.WriteLine($"-{(this.attack - (this.attack * knight.ReturnArmor()))} de vida a {knight.ReturnName()}");
+            Console.WriteLine($"-{this.attack} de vida a {knight.ReturnName()}");
         }
 
         /// <summary>
@@ -121,6 +121,11 @@ namespace Library
             return this.name;
         }
 
+        public List<Item> ReturnInventory()
+        {
+            return this.inventory;
+        }
+
         /// <summary>
         /// Devuelve la vida actual del Knight.
         /// </summary>
@@ -136,7 +141,7 @@ namespace Library
         /// <param name="damage"></param>
         public void RecieveDamage(int damage)
         {
-            this.health = this.health - (damage - (damage * (this.armor / 100)));
+            this.health = this.health - damage;
         }
         
         /// <summary>

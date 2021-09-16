@@ -23,5 +23,10 @@ namespace Library
         {
             return this.armor;
         }
+
+        public string ReturnName()
+        {
+            return this.name;
+        }
     }
 }
