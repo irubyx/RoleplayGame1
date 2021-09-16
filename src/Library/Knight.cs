@@ -7,7 +7,7 @@ namespace Library
     /// Creacion de la clase Knight, que contiene 3 atributos para sus estadisticas, 1 para el nombre y 1 lista que representa su
     /// inventario.
     /// </summary>
-    class Knight
+    public class Knight
     {
         private int health {get; set;}
         private int attack {get; set;}
