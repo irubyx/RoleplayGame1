@@ -6,10 +6,17 @@ namespace Library
     public class Wizard
     {
         private string name { get; set;}
-        private int health { get; set;}
+        private int health { get; set; }
+        public int Health
+        {
+            set
+            {
+                this.health = value;
+            }
+        }
         private int attack { get; set;} 
         private int armor { get; set;}
-        private List<Item> inventory;
+        private List<Item> inventory { get; set; }
         private SpellBook spellBook; 
 
         public Wizard(string name, SpellBook book)
@@ -29,53 +36,49 @@ namespace Library
         /// <param name="characterEnemy"></param>
         public void AttackEnemy(Wizard characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
-            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.ReturnName()}.");
+            characterEnemy.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {characterEnemy.ReturnName()}");
         }
         public void AttackEnemy(Elf characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
-            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.ReturnName()}.");
+            characterEnemy.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {characterEnemy.ReturnName()}");
         }
         public void AttackEnemy(Knight characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
-            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.ReturnName()}.");
+            characterEnemy.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {characterEnemy.ReturnName()}");
         }
         public void AttackEnemy(Dwarf characterEnemy)
         {
-            Console.WriteLine($"Se ataca a {characterEnemy.name}.");
-            characterEnemy.health = characterEnemy.health - (this.attack - (this.attack * characterEnemy.armor) + this.spellBook.GetDamage());
-            Console.WriteLine($"-{(this.attack - (this.attack * characterEnemy.armor))} de vida a {characterEnemy.name}");
+            Console.WriteLine($"Se ataca a {characterEnemy.ReturnName()}.");
+            characterEnemy.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {characterEnemy.ReturnName()}");
         }
 
+        public void RecieveDamage(int damage)
+        {
+            this.health = this.health - (damage - (damage * (this.armor / 100)));
+        }
 
         public void HealAlly(Wizard characterAlly)
         {
-            Console.WriteLine($"Curando a {characterAlly.name}");
             characterAlly.health += 10;
-            Console.WriteLine($"+10 de vida de {characterAlly.name}");
         }
         public void HealAlly(Elf characterAlly)
         {
-            Console.WriteLine($"Curando a {characterAlly.name}");
-            characterAlly.health += 10;
-            Console.WriteLine($"+10 de vida de {characterAlly.name}");
+            characterAlly.Health += 10;
         }
         public void HealAlly(Knight characterAlly)
         {
-            Console.WriteLine($"Curando a {characterAlly.name}");
-            characterAlly.health += 10;
-            Console.WriteLine($"+10 de vida de {characterAlly.name}");
+            characterAlly.Health += 10;
         }
         public void HealAlly(Dwarf characterAlly)
         {
-            Console.WriteLine($"Curando a {characterAlly.name}");
-            characterAlly.health += 10;
-            Console.WriteLine($"+10 de vida de {characterAlly.name}");
+            characterAlly.Health += 10;
         }
 
         public void EquipItem(Item item)
@@ -90,6 +93,15 @@ namespace Library
             this.attack = this.attack - item.ReturnDamage();
             this.armor = this.armor - item.ReturnArmor();
             this.inventory.Remove(item);
+        }
+        public List<Item> ReturnInventory()
+        {
+            return this.inventory;
+        }
+        
+        public string ReturnName()
+        {
+            return this.name;
         }
         
         public int ReturnArmor()

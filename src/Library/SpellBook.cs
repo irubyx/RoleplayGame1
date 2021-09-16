@@ -37,7 +37,7 @@ namespace Library
     /// </summary>
     /// <param name="stringbuilder"></param>
     /// <returns>Lista de hechizos</returns>
-        public string GetSpells(object stringbuilder)
+        public string GetSpells()
         {
             StringBuilder informationSpells = new StringBuilder();
             string line = "--------------------\n--------------------\n";
