@@ -1,12 +1,12 @@
 using System;
+using System.Collections.Generic;
 namespace Library
 {
     public class Elf
     {
         private string name {get; set;}
-        private int health  {get; set;}
+        private int health;
         private int attack {get; set;}
-
         private int armor {get; set;}  
         private List<Item> inventory;
     
@@ -16,35 +16,48 @@ namespace Library
             this.health = 100;
             this.attack = 35;
             this.armor = 5;
-            this.inventory = new List<Item> {};
-
+            this.inventory = new List<Item>();
+        }
+        public int Health
+        {
+            get
+            {
+                return this.health;
+            }
+            set
+            {
+                this.health = value;
+            }
+        }
+        public void RecieveDamage(int damage)
+        {
+            this.health = this.health - damage;
         }
         public void AttackEnemy(Knight enemyToAtack)
         {
-            enemyToAtack.health = enemyToAtack.health - (this.attack - (this.attack * (enemyToAtack.armor / 100)));
-            Console.WriteLine($"{this.name} ataca a {enemyToAtack.name}");
-            Console.WriteLine($"Se le quita {this.attack} puntos de vida a {enemyToAtack.name}");
+            Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
+            enemyToAtack.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {enemyToAtack.ReturnName()}");
         }
 
         public void AttackEnemy(Wizard enemyToAtack)
         {
-            enemyToAtack.health = enemyToAtack.health - (this.attack - (this.attack * (enemyToAtack.armor / 100)));
-            Console.WriteLine($"{this.name} ataca a {enemyToAtack.name}");
-            Console.WriteLine($"Se le quita {this.attack} puntos de vida a {enemyToAtack.name}");
+            Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
+            enemyToAtack.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {enemyToAtack.ReturnName()}");
         }
 
         public void AttackEnemy(Dwarf enemyToAtack)
         {
-            
-            enemyToAtack.health = enemyToAtack.health - (this.attack - (this.attack * (enemyToAtack.armor / 100)));
-            Console.WriteLine($"{this.name} ataca a {enemyToAtack.name}");
-            Console.WriteLine($"Se le quita {this.attack} puntos de vida a {enemyToAtack.name}");
+            Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
+            enemyToAtack.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {enemyToAtack.ReturnName()}");
         }
         public void AttackEnemy(Elf enemyToAtack)
         {
-            enemyToAtack.health = enemyToAtack.health - (this.attack - (this.attack * (enemyToAtack.armor / 100)));
-            Console.WriteLine($"{this.name} ataca a {enemyToAtack.name}");
-            Console.WriteLine($"Se le quita {this.attack} puntos de vida a {enemyToAtack.name}");
+            Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
+            enemyToAtack.RecieveDamage(this.attack);
+            Console.WriteLine($"-{this.attack} de vida a {enemyToAtack.ReturnName()}");
         }
 
         public void EquipItem(Item item)
@@ -76,6 +89,10 @@ namespace Library
         public void RestoreHealth()
         {
             this.health = 100;
+        }
+        public List<Item> ReturnInventory()
+        {
+            return this.inventory;
         }
     }
 }
