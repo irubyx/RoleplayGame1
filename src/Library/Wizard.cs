@@ -83,9 +83,37 @@ namespace Library
 
         public void EquipItem(Item item)
         {
-            this.inventory.Add(item);
-            this.attack = this.attack + item.ReturnDamage();
-            this.armor = this.armor + item.ReturnArmor();
+            bool agregado = false;
+            ///Se recorre el inventario por si el item que se busca implementar ya se encuentra. En caso de que no se encuentre se agrega fuera del condicional.
+            foreach(Item value in this.inventory)
+            {
+                if(value.ReturnName() == item.ReturnName())
+                {
+                    this.inventory.Remove(value);
+                    this.inventory.Add(item);
+                    /// se elimina el daño y armadura del objeto anterior
+                    this.attack -= value.ReturnDamage();
+                    this.armor -= value.ReturnArmor();
+                    /// se agrega el daño y la armadura del objeto
+                    this.attack = this.attack + item.ReturnDamage();
+                    this.armor = this.armor + item.ReturnArmor(); 
+                    agregado = true;
+                }
+            }
+            if(!agregado)
+            {
+                this.inventory.Add(item);
+                this.attack = this.attack + item.ReturnDamage();
+                this.armor = this.armor + item.ReturnArmor(); 
+            System.Console.WriteLine($"Objeto {item.ReturnName()} agregado correctamente.");
+            }
+        }
+
+        public void ExchangeItem(Item item, Item itemToChange)
+        {
+            inventory.Remove(itemToChange);
+            inventory.Add(item);
+            System.Console.WriteLine($"Objeto {itemToChange.ReturnName()} cambiado correctamente por {item.ReturnName()}.");
         }
 
         public void UnequipItem(Item item)
@@ -94,6 +122,7 @@ namespace Library
             this.armor = this.armor - item.ReturnArmor();
             this.inventory.Remove(item);
         }
+
         public List<Item> ReturnInventory()
         {
             return this.inventory;
