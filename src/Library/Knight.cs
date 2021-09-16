@@ -34,9 +34,9 @@ namespace Library
         /// <param name="wizard">Enemigo a atacar</param>
         public void AttackEnemy(Wizard wizard)
         {
-            Console.WriteLine($"Se ataca a {wizard.name}.");
-            wizard.health = wizard.health - (this.attack - (this.attack * (wizard.armor / 100)));
-            Console.WriteLine($"-{(this.attack - (this.attack * wizard.armor))} de vida a {wizard.name}");
+            Console.WriteLine($"Se ataca a {wizard.ReturnName()}.");
+            wizard.RecieveDamage(this.attack);
+            Console.WriteLine($"-{(this.attack - (this.attack * wizard.ReturnArmor()))} de vida a {wizard.ReturnName()}");
         }
 
         /// <summary>
@@ -45,9 +45,9 @@ namespace Library
         /// <param name="elf">Enemigo a atacar</param>
         public void AttackEnemy(Elf elf)
         {
-            Console.WriteLine($"Se ataca a {elf.name}.");
-            elf.health = elf.health - (this.attack - (this.attack * (elf.armor / 100)));
-            Console.WriteLine($"-{(this.attack - (this.attack * elf.armor))} de vida a {elf.name}");
+            Console.WriteLine($"Se ataca a {elf.ReturnName()}.");
+            elf.RecieveDamage(this.attack);
+            Console.WriteLine($"-{(this.attack - (this.attack * elf.ReturnArmor()))} de vida a {elf.ReturnName()}");
         }
 
         /// <summary>
@@ -56,9 +56,9 @@ namespace Library
         /// <param name="dwarf">Enemigo a atacar</param>
         public void AttackEnemy(Dwarf dwarf)
         {
-            Console.WriteLine($"Se ataca a {dwarf.name}.");
-            dwarf.health = dwarf.health - (this.attack - (this.attack * (dwarf.armor / 100)));
-            Console.WriteLine($"-{(this.attack - (this.attack * dwarf.armor))} de vida a {dwarf.name}");
+            Console.WriteLine($"Se ataca a {dwarf.ReturnName()}.");
+            dwarf.RecieveDamage(this.attack);
+            Console.WriteLine($"-{(this.attack - (this.attack * dwarf.ReturnArmor()))} de vida a {dwarf.ReturnName()}");
         }
 
         /// <summary>
@@ -67,9 +67,9 @@ namespace Library
         /// <param name="knight">Enemigo a atacar</param>
         public void AttackEnemy(Knight knight)
         {
-            Console.WriteLine($"Se ataca a {knight.name}.");
-            knight.health = knight.health - (this.attack - (this.attack * (knight.armor / 100)));
-            Console.WriteLine($"-{(this.attack - (this.attack * knight.armor))} de vida a {knight.name}");
+            Console.WriteLine($"Se ataca a {knight.ReturnName()}.");
+            knight.RecieveDamage(this.attack);
+            Console.WriteLine($"-{(this.attack - (this.attack * knight.ReturnArmor()))} de vida a {knight.ReturnName()}");
         }
 
         /// <summary>
@@ -113,6 +113,15 @@ namespace Library
         }
 
         /// <summary>
+        /// Devuelve el nombre del Knight.
+        /// </summary>
+        /// <returns></returns>
+        public string ReturnName()
+        {
+            return this.name;
+        }
+
+        /// <summary>
         /// Devuelve la vida actual del Knight.
         /// </summary>
         /// <returns></returns>
@@ -121,6 +130,15 @@ namespace Library
             return this.health;
         }
 
+        /// <summary>
+        /// Metodo para calcular el daño recibido por el ataque del enemigo.
+        /// </summary>
+        /// <param name="damage"></param>
+        public void RecieveDamage(int damage)
+        {
+            this.health = this.health - (damage - (damage * (this.armor / 100)));
+        }
+        
         /// <summary>
         /// Restaura al 100% la vida del Knight.
         /// </summary>
