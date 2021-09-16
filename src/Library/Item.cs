@@ -2,7 +2,7 @@ using System;
 
 namespace Library
 {
-    class Item
+    public class Item
     {
         private int damage {get; set;}
         private string name {get; set;}
