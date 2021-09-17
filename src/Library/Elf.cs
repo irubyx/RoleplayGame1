@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Library;
+
 namespace Library
 {
     /// <summary>
@@ -124,6 +126,11 @@ namespace Library
         public int ReturnArmor()
         {
             return this.armor;
+        }
+
+        public string ReturnName()
+        {
+            return this.name;
         }
 
         /// <summary>
