@@ -29,31 +29,33 @@ namespace Library
                 this.health = value;
             }
         }
+        
         public void RecieveDamage(int damage)
         {
             this.health = this.health - damage;
         }
-        public void AttackEnemy(Knight enemyToAtack)
+
+        public void AttackKnight(Knight enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
             Console.WriteLine($"-{this.attack} de vida a {enemyToAtack.ReturnName()}");
         }
 
-        public void AttackEnemy(Wizard enemyToAtack)
+        public void AttackWizard(Wizard enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
             Console.WriteLine($"-{this.attack} de vida a {enemyToAtack.ReturnName()}");
         }
 
-        public void AttackEnemy(Dwarf enemyToAtack)
+        public void AttackDwarf(Dwarf enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
             Console.WriteLine($"-{this.attack} de vida a {enemyToAtack.ReturnName()}");
         }
-        public void AttackEnemy(Elf enemyToAtack)
+        public void AttackElf(Elf enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
@@ -78,18 +80,22 @@ namespace Library
         {
             return this.armor;
         }
+
         public int ReturnAttack()
         {
             return this.attack;
         }
+
         public int CurrentHealth()
         {
             return this.health;
         }
+
         public void RestoreHealth()
         {
             this.health = 100;
         }
+
         public List<Item> ReturnInventory()
         {
             return this.inventory;
