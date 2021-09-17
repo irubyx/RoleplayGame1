@@ -128,6 +128,10 @@ namespace Library
             return this.armor;
         }
 
+        /// <summary>
+        /// Métpdp para acceder al nombre
+        /// </summary>
+        /// <returns></returns>
         public string ReturnName()
         {
             return this.name;
