@@ -15,9 +15,11 @@ namespace Test.Library
             brujo.EquipItem(new Item("Daga", 32, 0));
             brujo.EquipItem(new Item("Arma de fuego M-92", 40, 0));
             brujo.EquipItem(new Item("Botella", 4, 2));
+            brujo.ExchangeItem(brujo.ReturnInventory()[0], brujo.ReturnInventory()[1]);
                     
             Assert.IsNotNull(brujo);
             Assert.IsNotEmpty(brujo.ReturnInventory());
+            Assert.IsNotEmpty(brujo.spellBook.GetSpells());
         }
 
         [Test]

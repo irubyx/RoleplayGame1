@@ -17,7 +17,7 @@ namespace Library
         private int attack { get; set;} 
         private int armor { get; set;}
         private List<Item> inventory { get; set; }
-        private SpellBook spellBook; 
+        public SpellBook spellBook; 
 
         public Wizard(string name, SpellBook book)
         {
