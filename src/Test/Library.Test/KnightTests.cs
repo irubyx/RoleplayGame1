@@ -67,7 +67,7 @@ namespace Test.Library
         {
             Knight knight1 = new Knight("Atacante");
             Elf elf = new Elf("Defensor");
-            int expectedHealth = 25;
+            int expectedHealth = 75;
 
             knight1.AttackEnemy(elf);
 
