@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Library;
 
@@ -59,6 +59,15 @@ namespace Program
             /*Restauracion de la vida de darkKnight*/
             darkKnight.RestoreHealth();
             Console.WriteLine($"{darkKnight.ReturnName()}'s health has been restored.");
+
+            SpellBook libro = new SpellBook("Libro de hechizos.");
+            Wizard brujo = new Wizard("Brujo", libro);
+
+            Item daga = new Item("Daga", 10, 40);
+            brujo.EquipItem(daga);
+
+            brujo.AttackEnemy(elf1);
         }
     }
 }
+
