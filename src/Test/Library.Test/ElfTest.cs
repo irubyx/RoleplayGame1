@@ -1,13 +1,10 @@
 using NUnit.Framework;
 using Library;
+
 namespace Test.Library
 {
     public class ElfTest
     {
-        [Setup]
-        public void Setup()
-        {
-        }
 
         [Test]
         public void ReciveDamageTest()
@@ -24,8 +21,8 @@ namespace Test.Library
         {
             Elf elfa = new Elf("Idril");
             Knight knight = new Knight("Wade");
-            elfa.AttackKnight(knight);
-            expectedHealth = 100 - 35;
+            elfa.AttackEnemy(knight);
+            int expectedHealth = 100 - 35;
             Assert.AreEqual(expectedHealth, knight.CurrentHealth());
         }
 
@@ -64,7 +61,7 @@ namespace Test.Library
             int expectedAttack = 35 + 15;
             Assert.AreEqual(expectedAttack, elfa.ReturnAttack());
             
-            elfa.UnEquipItem(itemAtaque);
+            elfa.UnequipItem(itemAtaque);
             expectedAttack = 35 - 15;
             Assert.AreEqual(expectedAttack, elfa.ReturnAttack());
             Assert.IsEmpty(elfa.ReturnInventory());
