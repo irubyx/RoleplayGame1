@@ -115,6 +115,15 @@ namespace Library
         {
             this.health = 100;
         }
+        
+        public string ReturnName()
+        {
+            return this.name;
+        }
+        public void RecieveDamage(int damage)
+        {
+            this.health = this.health - damage;
+        }
     }
 }
 
