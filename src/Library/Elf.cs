@@ -55,7 +55,7 @@ namespace Library
         /// Método con el que se ataca al knight que recibe por parámetro.
         /// </summary>
         /// <param name="enemyToAtack"></param>
-        public void AttackKnight(Knight enemyToAtack)
+        public void AttackEnemy(Knight enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
@@ -66,7 +66,7 @@ namespace Library
         /// Método con el que se ataca al wizard que se recibe por parámetro. 
         /// </summary>
         /// <param name="enemyToAtack"></param>
-        public void AttackWizard(Wizard enemyToAtack)
+        public void AttackEnemy(Wizard enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
@@ -77,7 +77,7 @@ namespace Library
         /// Método con el que se ataca al dwarf que se recibe por parámetro.
         /// </summary>
         /// <param name="enemyToAtack"></param>
-        public void AttackDwarf(Dwarf enemyToAtack)
+        public void AttackEnemy(Dwarf enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
@@ -88,7 +88,7 @@ namespace Library
         /// Método con el que se ataca al elf que se recibe por parámetro.
         /// </summary>
         /// <param name="enemyToAtack"></param>
-        public void AttackElf(Elf enemyToAtack)
+        public void AttackEnemy(Elf enemyToAtack)
         {
             Console.WriteLine($"Se ataca a {enemyToAtack.ReturnName()}.");
             enemyToAtack.RecieveDamage(this.attack);
