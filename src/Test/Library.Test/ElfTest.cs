@@ -43,7 +43,7 @@ namespace Test.Library
         public void EquipItemArmorTest()
         {
             Elf elfa = new Elf("Idril");
-            Item itemArmor = new Item("Pocion", 15, 0);
+            Item itemArmor = new Item("Pocion", 0, 15);
             elfa.EquipItem(itemArmor);
             int expectedAttack = 35;
             int expectedArmor = 5 + 15;
@@ -62,10 +62,9 @@ namespace Test.Library
             Assert.AreEqual(expectedAttack, elfa.ReturnAttack());
             
             elfa.UnequipItem(itemAtaque);
-            expectedAttack = 35 - 15;
+            expectedAttack = expectedAttack - 15;
             Assert.AreEqual(expectedAttack, elfa.ReturnAttack());
             Assert.IsEmpty(elfa.ReturnInventory());
         }
-
     }
 }
