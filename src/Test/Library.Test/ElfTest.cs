@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Library;
 namespace Test.Library
 {
     public class ElfTest
@@ -6,12 +7,12 @@ namespace Test.Library
         [Setup]
         public void Setup()
         {
-            Elf elfa = new Elf("Idril");
         }
 
         [Test]
         public void ReciveDamageTest()
         {
+            Elf elfa = new Elf("Idril");
             int damage = 7;
             int expectedHealth = 100 - 7;
             elfa.RecieveDamage(damage);
@@ -21,6 +22,7 @@ namespace Test.Library
         [Test]
         public void AttackEnemyKnightTest()
         {
+            Elf elfa = new Elf("Idril");
             Knight knight = new Knight("Wade");
             elfa.AttackKnight(knight);
             expectedHealth = 100 - 35;
@@ -30,6 +32,7 @@ namespace Test.Library
         [Test]
         public void EquipItemAttackTest()
         {
+            Elf elfa = new Elf("Idril");
             Item itemAtaque = new Item("Fuego", 15, 0);
             elfa.EquipItem(itemAtaque);
             int expectedAttack = 35 + 15;
@@ -42,6 +45,7 @@ namespace Test.Library
         [Test]
         public void EquipItemArmorTest()
         {
+            Elf elfa = new Elf("Idril");
             Item itemArmor = new Item("Pocion", 15, 0);
             elfa.EquipItem(itemArmor);
             int expectedAttack = 35;
@@ -54,6 +58,7 @@ namespace Test.Library
         [Test]
         public void UnEquipItemTest()
         {
+            Elf elfa = new Elf("Idril");
             Item itemAtaque = new Item("Fuego", 15, 0);
             elfa.EquipItem(itemAtaque);
             int expectedAttack = 35 + 15;
