@@ -66,28 +66,26 @@ namespace Test.Library
         public void AttackTest2()
         {
             Knight knight1 = new Knight("Atacante");
-            Wizard wizard = new Wizard("Defensor");
+            Elf elf = new Elf("Defensor");
             int expectedHealth = 25;
 
-            knight1.AttackEnemy(wizard);
+            knight1.AttackEnemy(elf);
 
-            Assert.AreEqual(expectedHealth, wizard.CurrentHealth());
+            Assert.AreEqual(expectedHealth, elf.CurrentHealth());
         }
 
         [Test]
         public void RestoreHP()
         {
             Knight knight = new Knight("Defensor");
-            Wizard wizard = new Wizard("Atacante");
+            Elf elf = new Elf("Atacante");
             int expectedHealth = 100;
 
-            wizard.AttackEnemy(knight);
+            elf.AttackEnemy(knight);
 
             knight.RestoreHealth();
 
             Assert.AreEqual(expectedHealth, knight.CurrentHealth());
         }
     }
-
-
 }
