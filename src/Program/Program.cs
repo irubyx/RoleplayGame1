@@ -20,7 +20,8 @@ namespace Program
                 elf1.AttackEnemy(elf2);
                 elf2.AttackEnemy(elf1);
             }
-
+            Console.WriteLine();
+            
             /*Creacion de darkKnight y de los items sword y armor*/
             Knight darkKnight = new Knight("Dark Knight");
             Item sword = new Item("Sword", 15, 0);
@@ -35,6 +36,7 @@ namespace Program
             Console.WriteLine($"Attack: {darkKnight.ReturnAttack()}");
             Console.WriteLine($"Armor: {darkKnight.ReturnArmor()}");
             Console.WriteLine($"Health: {darkKnight.CurrentHealth()}");
+            Console.WriteLine();
 
             /*Creacion de defensor*/
             Knight defensor = new Knight("Defensor");
@@ -46,6 +48,7 @@ namespace Program
                 Console.WriteLine($"Current health of {defensor.ReturnName()}: {defensor.CurrentHealth()}");
                 defensor.AttackEnemy(darkKnight);
                 Console.WriteLine($"Current health of {darkKnight.ReturnName()}: {darkKnight.CurrentHealth()}");
+                Console.WriteLine();
             }
             if (defensor.CurrentHealth() <= 0)
             {
@@ -59,6 +62,7 @@ namespace Program
             /*Restauracion de la vida de darkKnight*/
             darkKnight.RestoreHealth();
             Console.WriteLine($"{darkKnight.ReturnName()}'s health has been restored.");
+            Console.WriteLine();
 
             SpellBook libro = new SpellBook("Libro de hechizos.");
             Wizard brujo = new Wizard("Brujo", libro);
@@ -70,4 +74,3 @@ namespace Program
         }
     }
 }
-
