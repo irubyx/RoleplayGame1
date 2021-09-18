@@ -1,5 +1,5 @@
 ﻿using System;
-using Library;
+using System.Collections.Generic;
 
 namespace Program
 {
@@ -7,7 +7,6 @@ namespace Program
     {
         static void Main()
         {
-
             Elf elf1 = new Elf("Elf1");
             Elf elf2 = new Elf("Elf2");
             Item item1 = new Item("Fuego", 10, 0);
