@@ -94,7 +94,7 @@ namespace Library
         {
             this.attack = this.attack - item.ReturnDamage();
             this.armor = this.armor - item.ReturnArmor();
-            this.inventory.remove(item);
+            this.inventory.Remove(item);
         }
         /// <summary>
         /// Retorna la armadura del Dwarf
