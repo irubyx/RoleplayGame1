@@ -17,8 +17,8 @@ namespace Program
             
             while (elf2.CurrentHealth()>0)
             {
-                elf1.AttackElf(elf2);
-                elf2.AttackElf(elf1);
+                elf1.AttackEnemy(elf2);
+                elf2.AttackEnemy(elf1);
             }
 
             /*Creacion de darkKnight y de los items sword y armor*/
